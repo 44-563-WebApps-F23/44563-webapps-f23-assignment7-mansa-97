@@ -33,19 +33,16 @@
 </body>
 <script>
 	function makeNewDiv(){
-		/* make the div and its text */
         const target = document.getElementById("target");
 		const divs = target.getElementsByTagName("div");
 		for (let i = 0; i < divs.length; i++) {
-			divs[i].className = "merger";
-		}
+			divs[i].className = "merger";}
 		let element = document.createElement("div")
         element.className = "merger"
 		const input = document.getElementById("input").value;
 		element.innerHTML = input
 		let container = document.getElementById('target')
-		container.appendChild(element)
-	}
+		container.appendChild(element)}
     document.getElementById("remove").onclick = remove;
 	function remove() {
 		const mergerItems = document.getElementsByClassName("merger");
@@ -53,8 +50,7 @@
 		if (length > 0) {
 			const middle = Math.floor(length / 2);
 			mergerItems[middle].remove();
-		}
-	}
+		}}
     document.getElementById("front").onclick = addFront;
 	function addFront() {
 		const newElement = document.createElement("div");
@@ -62,7 +58,6 @@
 		const input1 = document.getElementById("input").value;
 		newElement.innerHTML = input1;
 		const container = document.getElementById("target");
-		container.insertBefore(newElement, container.firstChild);
-	}
+		container.insertBefore(newElement, container.firstChild);}
 </script>
 </html>	
