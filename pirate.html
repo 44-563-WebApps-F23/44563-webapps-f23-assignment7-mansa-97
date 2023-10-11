@@ -93,8 +93,7 @@
             }
             else{
                 img1.src= "piratehat.jpg";
-            }
-            
+            }           
             checkCount++;
             document.getElementById("locations").innerHTML="Number of Locations checked: "+checkCount;
             penalty++;
@@ -116,14 +115,12 @@
             } 
             else if(Math.abs(trrow-lastrow) + Math.abs(trcol-lastcol)==2){
                 document.getElementById("help").innerHTML="Close Matie"
-
             }
             else {
                 document.getElementById("help").innerHTML="Step Faster"   
             }
             penalty=penalty+2
             document.getElementById("penalty").innerHTML="Penalty:"+penalty;
-
         }
         </script>
 
