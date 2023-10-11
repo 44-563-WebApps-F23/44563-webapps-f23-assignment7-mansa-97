@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html> <head> <style>
+    .flex-container {
+      display: flex;  flex-direction:row;
+      background-color: red;
+   }
+.flex-container > div {  /*div children of the flex container*/
+  background-color: #f1f1f1; 
+  margin: 10px;  padding: 20px;  font-size: 30px;
+}
+/* Responsive layout */
+@media (max-width: 600px) { 
+	 .flex-container{
+		 flex-direction:column;
+		 background-color: green;
+	  }
+	}
+</style>
+<title>Merger Html</title>
+</head>
+<body>
+    <h2>Lakshmi Manasa builds a merger</h2>
+		<div class="flex-container" id="target">
+		  <div>row item 1</div>   
+		  <div>row item 2</div>  
+		  <div>row item 3</div>  
+		</div>
+	<p> Press the button to create an new element of type div and then add it to the container.</p>
+    <input id="input" type="text">
+	<button onclick="makeNewDiv()">Add end</button>
+</body>
+<script>
+	function makeNewDiv(){
+		/* make the div and its text */
+        const target = document.getElementById("target");
+		const divs = target.getElementsByTagName("div");
+		for (let i = 0; i < divs.length; i++) {
+			divs[i].className = "merger";
+		}
+		let element = document.createElement("div")
+        element.className = "merger"
+		const input = document.getElementById("input").value;
+		element.innerHTML = input
+		let container = document.getElementById('target')
+		container.appendChild(element)
+	}
+</script>
+</html>	
