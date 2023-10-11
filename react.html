@@ -8,22 +8,42 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    #counter{
+      display: inline;
+  }
+  </style>
 </head>
 <body>
 
   <h2>Lakshmi Manasa speed check</h2>
   <div id="target">Your time</div>
   <div id="counter">Count</div>
+  <span id="countdown"></span> <br>
   <button type="button" class="btn btn-success" onclick="startTime()">Start Timer</button>
   <button type="button" class="btn btn-primary" onclick="recordTime()">React</button>
   <script> 
     let reactTime=undefined;
     function recordTime(){
       reactTime=Date.now();
-      console.log(reactTime);
+      console.log(reactTime);}
+    function startTime() {
+       const countDown=Math.floor(Math.random() * 9) + 2;
+       for(let i=0;i<9;i++){
+        setTimeout(function(){
+        document.getElementById('countdown').innerHTML = i
+       }, (8-i)*1000)}
+      setTimeout(function(){
+      if(reactTime===undefined){
+        document.getElementById('target').innerHTML= "Too Slow";
+      }
+      else{
+        var endTime=Date.now();
+        diff=endTime-reactTime;
+        document.getElementById('target').innerHTML= "Time was "+diff;
+      }
+    }, 8000)
     }
-    </script>
-  
-
+  </script>
 </body>
 </html>
