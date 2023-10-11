@@ -20,11 +20,11 @@
         <p>Click on the locations to search for treasure, beware the traps</p>
         <p id="locations" style="color:darkred;background-color:lightgray;">Number of locations checked is zero</p>
         <p id="penalty" style="background-color: darkcyan;">Penalty is zero</p>
-        <p>Click for help</p>
+        <p id="click_help" style="background-color: goldenrod;">Click for help</p>
         <p id="help" style="color:green;background-color: blanchedalmond ;">Help report</p>
         <div class="container">
         <div class="image-row d-flex justify-content-center">
-            <div><img  class="col" src="location.jpg" height="60" width="60" id="0" onclick="check(0)"> </div>
+            <div><img class="col" src="location.jpg" height="60" width="60" id="0" onclick="check(0)"> </div>
             <div><img class="col" src="location.jpg" height="60" width="60" id="1" onclick="check(1)"></div>
             <div><img class="col" src="location.jpg" height="60" width="60" id="2" onclick="check(2)"></div>
             <div><img class="col" src="location.jpg" height="60" width="60" id="3" onclick="check(3)"></div>
@@ -67,5 +67,65 @@
             <div><img class="col" src="location.jpg" height="60" width="60"  id="24" onclick="check(24)"></div>
         </div>
     </div>
+    <script>
+        var ids=[];
+        for(var i=0;i<=24;i++){
+                ids.push(i);
+            }
+        var checkCount=0;
+        var penalty=0;
+        var lastCheck=0;
+        var treasureLocation=5;
+        var trapLocation=18;
+        var gameOver=false;
+        function check(position){
+            var img=ids[position];
+            var img1=document.getElementById(img);
+            if(position==treasureLocation){
+                img1.src="treasure.jpeg";
+                gameOver=true;
+                penaly=penalty-3;
+            }
+            else if(position==trapLocation){
+                img1.src= "trap.jpg";
+                gameOver=true;
+                penalty=penalty+4;
+            }
+            else{
+                img1.src= "piratehat.jpg";
+            }
+            
+            checkCount++;
+            document.getElementById("locations").innerHTML="Number of Locations checked: "+checkCount;
+            penalty++;
+            document.getElementById("penalty").innerHTML="Penalty:"+penalty;
+            lastCheck=position;
+        }
+        document.getElementById("click_help").onclick=help;
+        function help(){
+            var lastcol=parseInt(lastCheck%5);
+            console.log(lastcol)
+            var lastrow=parseInt(lastCheck/5);
+            console.log(lastrow)
+            var trrow=parseInt(treasureLocation/5);
+            console.log(trrow)
+            var trcol=parseInt(treasureLocation%5);
+            console.log(trcol)
+            if(Math.abs(trrow-lastrow) + Math.abs(trcol-lastcol)==1){
+                document.getElementById("help").innerHTML="Can smell it"
+            } 
+            else if(Math.abs(trrow-lastrow) + Math.abs(trcol-lastcol)==2){
+                document.getElementById("help").innerHTML="Close Matie"
+
+            }
+            else {
+                document.getElementById("help").innerHTML="Step Faster"   
+            }
+            penalty=penalty+2
+            document.getElementById("penalty").innerHTML="Penalty:"+penalty;
+
+        }
+        </script>
+
     </body>
 </html>
