@@ -122,6 +122,32 @@
             penalty=penalty+2
             document.getElementById("penalty").innerHTML="Penalty:"+penalty;
         }
+        function NewGame(){
+        treasureLocation=Math.floor(Math.random() * (24));
+        trapLocation=Math.floor(Math.random() * (24));
+        chestno=0;
+        score=0;
+        document.getElementById("chests").innerHTML="Number of chests checked is "+chestno+".";
+        document.getElementById("score").innerHTML="Score is "+score+".";
+        if(treasureLocation==12){
+            treasureLocation=12+Math.floor(Math.random()*12)
+        }
+        for (var i = 0; i <= 24; i++) {
+            if(i != 12)
+            document.getElementById(ids[i]).src = "closedtreasure.png"
+        }
+        }
+        function newGame() {
+            treasureLocation = Math.floor(Math.random() * 25);
+            trapLocation = Math.floor(Math.random() * 25);
+            checkCount = 0
+            penalty = 0
+            document.getElementById("locations").innerHTML = "Number of locations checked is zero";
+            document.getElementById("penalty").innerHTML = "Penalty is zero";
+            for (let i = 0; i < 25; i++) {
+                document.getElementById(ids[i]).src = "location.jpg";
+            }
+        }
         </script>
 
     </body>

@@ -28,11 +28,12 @@
       reactTime=Date.now();
       console.log(reactTime);}
     function startTime() {
-       const countDown=Math.floor(Math.random() * 9) + 2;
-       for(let i=0;i<9;i++){
+    let countDown=Math.floor(Math.random() * 9) + 2;
+     for(let i=0;i<9;i++){
         setTimeout(function(){
-        document.getElementById('countdown').innerHTML = i
-       }, (8-i)*1000)}
+      document.getElementById('countdown').innerHTML = i
+     }, (8-i)*1000)
+    
       setTimeout(function(){
       if(reactTime===undefined){
         document.getElementById('target').innerHTML= "Too Slow";
@@ -44,6 +45,7 @@
       }
     }, 8000)
     }
+}
   </script>
 </body>
 </html>

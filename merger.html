@@ -21,15 +21,16 @@
 <body>
     <h2>Lakshmi Manasa builds a merger</h2>
 		<div class="flex-container" id="target">
-		  <div>row item 1</div>   
-		  <div>row item 2</div>  
-		  <div>row item 3</div>  
+		  <div class="merger">row item 1</div>   
+		  <div class="merger">row item 2</div>  
+		  <div class="merger">row item 3</div>  
 		</div>
 	<p> Press the button to create an new element of type div and then add it to the container.</p>
     <input id="input" type="text">
 	<button onclick="makeNewDiv()">Add end</button>
     <button id="front">Add front</button>
 	<button id="remove">Remove</button>
+    <button onclick="swap()">Swap</button>
 </body>
 <script>
 	function makeNewDiv(){
@@ -59,5 +60,18 @@
 		newElement.innerHTML = input1;
 		const container = document.getElementById("target");
 		container.insertBefore(newElement, container.firstChild);}
+        function swap() {
+            let mergerItems = document.getElementsByClassName("merger");
+            let container = document.getElementById("target");
+            let swap1 = Math.floor(Math.random() * mergerItems.length);
+            let swap2 = Math.floor(Math.random() * mergerItems.length);
+            let Element1 = document.getElementsByClassName("merger")[swap1];
+            let Element2 = document.getElementsByClassName("merger")[swap2];
+            if (mergerItems.length > 1) {
+                let temp =Element1.innerHTML;
+                Element1.innerHTML = Element2.innerHTML;
+                Element2.innerHTML = temp;
+            }
+        }
 </script>
 </html>	
